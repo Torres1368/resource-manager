@@ -1,14 +1,15 @@
-// We'll complete this component later
+import { useUser } from "../lib/context/user";
+
 export function Home() {
-  return (
+  const {logout} = useUser();
+    return (
     
     <div>
         <p>I'm the home page</p>          
         <button
             className="button"
             type="button"
-            onClick={() => user.logout()}
-          >
+            onClick={logout}>
             Salir
           </button></div>
   );

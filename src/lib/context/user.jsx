@@ -1,6 +1,7 @@
 import { ID } from "appwrite";
 import { createContext, useContext, useEffect, useState } from "react";
 import { account } from "../appwrite";
+import { useNavigate } from "react-router";
 
 const UserContext = createContext();
 
@@ -10,17 +11,18 @@ export function useUser() {
 
 export function UserProvider(props) {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   async function login(email, password) {
     const loggedIn = await account.createEmailPasswordSession(email, password);
     setUser(loggedIn);
-    window.location.replace("/");
+    navigate("/home");
   }
 
   async function logout() {
     await account.deleteSession("current");
     setUser(null);
-    window.location.replace("/")
+    navigate("/login")
   }
 
   async function register(email, password) {
