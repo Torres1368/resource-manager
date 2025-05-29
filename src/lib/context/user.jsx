@@ -14,10 +14,14 @@ export function UserProvider(props) {
   const navigate = useNavigate();
 
   async function login(email, password) {
+    try{
     const loggedIn = await account.createEmailPasswordSession(email, password);
     setUser(loggedIn);
     navigate("/home");
+     } catch (error) {
+    console.error("Error al iniciar sesión:", error.message);
   }
+}
 
   async function logout() {
     await account.deleteSession("current");
@@ -26,9 +30,14 @@ export function UserProvider(props) {
   }
 
   async function register(email, password) {
+    
+  try{
     await account.create(ID.unique(), email, password);
     await login(email, password);
+  } catch(error){
+    console.error("error al registrar: ", error.message)
   }
+}
 
   async function init() {
     try {

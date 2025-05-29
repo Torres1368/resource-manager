@@ -43,14 +43,6 @@ export function Login() {
             Register
           </button>
 
-          <button
-            className="button"
-            type="button"
-            onClick={() => user.logout()}
-          >
-            Salir
-          </button>
-
         </div>
       </form>
     </section>

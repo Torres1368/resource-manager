@@ -1,16 +1,15 @@
 import { Login } from "./pages/Login";
 import { Home } from "./pages/Home";
 import { UserProvider } from "./lib/context/user";
+import { AppRouter } from "./router/AppRouter";
 
 function App() {
   const isLoginPage = window.location.pathname === "/login";
 
   return (
-    <div>
       <UserProvider>
-        <main>{isLoginPage ? <Login /> : <Home />}</main>
+        <AppRouter />
       </UserProvider>
-    </div>
   );
 }
 
