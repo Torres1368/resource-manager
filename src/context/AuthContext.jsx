@@ -7,28 +7,42 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
-    const [user, setUser] = useState(false);
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
-        setLoading(false)
+        checkUserStatus()
     }, [])
 
-    const loginUser = async (userInfo) => { 
+    const loginUser = async (userInfo) => {
         setLoading(true)
-        try{
+        try {
             let response = await account.createEmailPasswordSession(
                 userInfo.email,
                 userInfo.password
             )
-            console.log('SESION:', response)
-        }catch(error){
-            console.error.log("el error: "+error)
+            let accountDetails = await account.get()
+            console.log('accountDetails:', accountDetails)
+            setUser(accountDetails)
+        } catch (error) {
+            console.error(error)
         }
         setLoading(false)
     }
-    const logoutUser = () => { }
+    const logoutUser = async () => {
+        await account.deleteSession('current');
+        setUser(null)
+    }
     const registerUser = (userInfo) => { }
-    const checkUserStatus = () => { }
+    const checkUserStatus = async () => {
+        try {
+            let accountDetails = await account.get();
+            setUser(accountDetails)
+        } catch (error) {
+
+        }
+        setLoading(false)
+    }
+
     const contextData = {
         user,
         loginUser,

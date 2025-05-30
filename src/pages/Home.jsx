@@ -3,17 +3,14 @@ import { Button, Flex, Text } from "@chakra-ui/react";
 
 
 export function Home() {
-  const { user } = useAuth();
+  const { user, logoutUser } = useAuth()
 
-  if (!user) {
-    return (
-      <Text>No estas logeado mi bro</Text>
-    );
+  const logoutClick = () => {
+    navigate('/login')
   }
-
   return (
     <Flex align="center" bg="red.500" justify="center" h="100vh">
-      <Button bg="red.500">
+      <Button bg="red.500" onClick={logoutUser}>
         Salir
       </Button>
     </Flex>
