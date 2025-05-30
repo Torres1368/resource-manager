@@ -2,13 +2,15 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import "@appwrite.io/pink-icons";
 import App from './App.jsx'
-import { BrowserRouter } from 'react-router';
-import { AppRouter } from './router/AppRouter.jsx';
+
+import { Provider } from './components/ui/provider.jsx';
+import Layout from './components/ui/layouts/MainLayout.jsx';
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-    <App/>
-    </BrowserRouter>
+    <Provider>
+      <App />
+    </Provider>
   </StrictMode>,
 )

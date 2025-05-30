@@ -1,16 +1,32 @@
-import { Login } from "./pages/Login";
+import {  BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import PrivateRoutes from "./routes/PrivateRoutes";
+
+
+import Register from "./pages/auth/register";
+import { AuthProvider } from "./context/AuthContext";
 import { Home } from "./pages/Home";
-import { UserProvider } from "./lib/context/user";
-import { AppRouter } from "./router/AppRouter";
+import Login from "./pages/auth/Login";
+
 
 function App() {
-  const isLoginPage = window.location.pathname === "/login";
-
   return (
-      <UserProvider>
-        <AppRouter />
-      </UserProvider>
-  );
+    <Router>
+      <AuthProvider>
+      <Routes>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
+        
+        <Route element={<PrivateRoutes />}>
+          <Route path="/" element={<Home/>} />
+        </Route>
+
+      </Routes > 
+      </AuthProvider>
+    </Router>
+
+
+  )
 }
 
 export default App;

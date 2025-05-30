@@ -1,16 +1,23 @@
-import { useUser } from "../lib/context/user";
+import { useAuth } from "@/context/AuthContext";
+import { Button, Flex, Text } from "@chakra-ui/react";
+
 
 export function Home() {
-  const {logout} = useUser();
+  const { user } = useAuth();
+
+  if (!user) {
     return (
-    
-    <div>
-        <p>I'm the home page</p>          
-        <button
-            className="button"
-            type="button"
-            onClick={logout}>
-            Salir
-          </button></div>
+      <Text>No estas logeado mi bro</Text>
+    );
+  }
+
+  return (
+    <Flex align="center" bg="red.500" justify="center" h="100vh">
+      <Button bg="red.500">
+        Salir
+      </Button>
+    </Flex>
   );
 }
+
+export default Home;
