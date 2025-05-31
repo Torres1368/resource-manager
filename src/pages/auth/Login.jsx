@@ -4,15 +4,15 @@ import { useAuth } from '@/context/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
-  const { user, loginUser } = useAuth()
   const navigate = useNavigate()
+  const { user, loginUser } = useAuth()
   const loginForm = useRef(null)
 
   useEffect(() => {
     if (user) {
       navigate('/')
     }
-  }, [user, navigate])
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
