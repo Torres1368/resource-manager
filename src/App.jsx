@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import PrivateRoutes from "./routes/PrivateRoutes";
 
@@ -20,6 +20,7 @@ function App() {
 
           <Route element={<PrivateRoutes />}>
             <Route path="/" element={<LayoutHome />}>
+              <Route index element={<Navigate to="welcome" replace />} />
               <Route path="welcome" element={<Welcome />} />
               <Route path="recursos" element={<div>Recursos Técnicos</div>} />
             </Route>

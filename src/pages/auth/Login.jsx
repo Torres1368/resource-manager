@@ -29,30 +29,27 @@ const Login = () => {
         <Input
           name="email"
           type="email"
-          placeholder="Enter email..."
+          placeholder="Ingresa el email"
           mb="4"
-          isRequired
         />
 
-        <Text mb="1">Password:</Text>
+        <Text mb="1">Contraseña:</Text>
         <Input
           name="password"
           type="password"
-          placeholder="Enter password..."
+          placeholder="Ingresa la contraseña"
           mb="4"
-          autoComplete="current-password"
-          isRequired
         />
 
-        <Button colorScheme="teal" type="submit" width="100%">
-          Login
+        <Button  type="submit" width="100%">
+          Ingresar
         </Button>
       </form>
 
       <Text mt="4" textAlign="center">
-        Don't have an account?{' '}
+        No tienes una cuenta?{' '}
         <ChakraLink as={Link} to="/register" color="teal.500">
-          Register
+          Registrate
         </ChakraLink>
       </Text>
     </Box>

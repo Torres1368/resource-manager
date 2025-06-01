@@ -6,28 +6,28 @@ import { useNavigate } from 'react-router'
 
 const Register = () => {
     const registerForm = useRef(null);
-    const {user, registerUser}=useAuth();
+    const { user, registerUser } = useAuth();
     const navigate = useNavigate();
 
-      useEffect(() => {
+    useEffect(() => {
         if (user) {
-          navigate('/')
+            navigate('/')
         }
-      }, [])
+    }, [])
 
-    const handleSubmit =(event)=>{
+    const handleSubmit = (event) => {
         event.preventDefault()
         const name = registerForm.current.name.value
         const email = registerForm.current.email.value
         const password1 = registerForm.current.password1.value
         const password2 = registerForm.current.password2.value
 
-        if(password1 !== password2){
+        if (password1 !== password2) {
             alert('Las contraseñas no coinciden')
             return
         }
 
-        const userInfo = {name, email, password1, password2}
+        const userInfo = { name, email, password1, password2 }
         registerUser(userInfo)
     }
     return (
@@ -39,7 +39,6 @@ const Register = () => {
                     type="text"
                     placeholder="Ingresa el nombre"
                     mb="4"
-                    isRequired
                 />
 
                 <Text mb="1">Email:</Text>
@@ -48,38 +47,33 @@ const Register = () => {
                     type="text"
                     placeholder="Ingresa el correo"
                     mb="4"
-                    isRequired
                 />
 
-                <Text mb="1">Password:</Text>
+                <Text mb="1">Contraseña:</Text>
                 <Input
                     name="password1"
                     type="password"
-                    placeholder="Enter password..."
+                    placeholder="Ingrese la contraseña"
                     mb="4"
-                    autoComplete="current-password"
-                    isRequired
                 />
 
-                                <Text mb="1">Password:</Text>
+                <Text mb="1">Password:</Text>
                 <Input
                     name="password2"
                     type="password"
                     placeholder="Enter password..."
                     mb="4"
-                    autoComplete="current-password"
-                    isRequired
                 />
 
-                <Button colorScheme="teal" type="submit" width="100%">
+                <Button  type="submit" width="100%">
                     Registrar
                 </Button>
             </form>
 
             <Text mt="4" textAlign="center">
-                Ya tienes una cuenta?{' '}
+                Ya tienes una cuenta? {' '}
                 <ChakraLink as={Link} to="/login" color="teal.500">
-                    Inicia Sesión
+                     Inicia Sesión {':)'}
                 </ChakraLink>
             </Text>
         </Box>
