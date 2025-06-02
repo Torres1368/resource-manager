@@ -2,6 +2,7 @@
 import { account } from "@/lib/appwrite";
 import { createContext, useEffect, useState, useContext } from "react";
 import { ID } from "appwrite";
+import { Flex, ProgressCircle } from "@chakra-ui/react"
 const AuthContext = createContext();
 
 
@@ -49,12 +50,12 @@ export const AuthProvider = ({ children }) => {
             )
             let accountDetails = await account.get()
             setUser(accountDetails)
-            
+
         } catch (error) {
             console.error(error)
         }
         setLoading(false)
-     }
+    }
 
     const checkUserStatus = async () => {
         try {
@@ -75,7 +76,18 @@ export const AuthProvider = ({ children }) => {
     }
     return (
         <AuthContext.Provider value={contextData}>
-            {loading ? <p>loading..</p> : children}
+            {loading ?
+
+                <Flex height="100vh" justify="center"  align="center" >
+                    <ProgressCircle.Root value={75} size="xl" colorPalette="red">
+                        <ProgressCircle.Circle>
+                            <ProgressCircle.Track />
+                            <ProgressCircle.Range strokeLinecap="round" />
+                        </ProgressCircle.Circle>
+                    </ProgressCircle.Root>
+                </Flex>
+
+                : children}
         </AuthContext.Provider>
     )
 }
