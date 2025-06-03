@@ -1,26 +1,16 @@
-# React starter kit with Appwrite
+# WIST PJ
+Este es un proyecto construido con Vite (React) y Appwrite como backend. Permite gestionar los recursos tecnicos.
 
-Kickstart your React development with this ready-to-use starter project integrated with [Appwrite](https://www.appwrite.io)
 
-## 🚀Getting started
+#  Instrucciones para correr el proyecto localmente
 
-###
-Clone the Project
-Clone this repository to your local machine using Git:
+# 1. Clonar el repositorio
+1.  git clone https://github.com/Torres1368/resource-manager.git
+2.  cd nombre-del-repo
 
-`git clone https://github.com/appwrite/starter-for-react`
+# 2. Instalar las dependecias
+npm install
 
-## 🛠️ Development guid
-1. **Configure Appwrite**<br/>
-   Navigate to `.env` and update the values to match your Appwrite project credentials.
-2. **Customize as needed**<br/>
-   Modify the starter kit to suit your app's requirements. Adjust UI, features, or backend
-   integrations as per your needs.
-3. **Install dependencies**<br/>
-   Run `npm install` to install all dependencies.
-4. **Run the app**<br/>
-   Start the project by running `npm run dev`.
 
-## 💡 Additional notes
-- This starter project is designed to streamline your React development with Appwrite.
-- Refer to the [Appwrite documentation](https://appwrite.io/docs) for detailed integration guidance.
+# 2. Variables de entorno
+Crear o copiar el archivo enviado .env con las credenciales
