@@ -1,4 +1,3 @@
-import Welcome from "@/pages/Welcome";
 import NavBar from "./NavBar";
 
 import { Outlet } from "react-router-dom";
