@@ -7,7 +7,7 @@ import logo from '../../assets/img/logo2.png';
 
 const Login = () => {
   const navigate = useNavigate()
-  const { user, loginUser } = useAuth()
+  const { user, loginUser, loginWithOAuth } = useAuth()
   const loginForm = useRef(null)
 
   useEffect(() => {
@@ -62,6 +62,24 @@ const Login = () => {
             Ingresar
           </Button>
         </form>
+
+        <Flex mt="4" direction="column" gap="3">
+          <Button
+            onClick={() => loginWithOAuth('google')}
+            colorScheme="red"
+            variant="outline"
+          >
+            Iniciar con Google
+          </Button>
+
+          <Button
+            onClick={() => loginWithOAuth('microsoft')}
+            colorScheme="blue"
+            variant="outline"
+          >
+            Iniciar con Outlook
+          </Button>
+        </Flex>
 
         <Text mt="4" textAlign="center">
           No tienes una cuenta?{' '}

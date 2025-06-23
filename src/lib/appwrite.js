@@ -1,4 +1,4 @@
-import { Client, Account, Databases, Storage } from "appwrite";
+import { Client, Account, Databases, Storage, Teams } from "appwrite";
 
 const client = new Client()
     .setEndpoint(import.meta.env.VITE_APPWRITE_ENDPOINT)
@@ -7,5 +7,6 @@ const client = new Client()
 const account = new Account(client);
 const databases = new Databases(client);
 const storage = new Storage(client);
+const teams = new Teams(client)
 
-export { client, account, databases, storage };
+export { client, account, databases, storage, teams };
